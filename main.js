@@ -20,9 +20,10 @@ function getCurrentDate() {
   return new Date().getTime();
 }
 
+
+
 function daysLeftToWedding(weddingDate) {
-  const now = getCurrentDate();
-  const distance = weddingDate - now;
+  const distance = getWeddingDate() - getCurrentDate();
 
   const days = getDays(distance);
   const hours = getHours(distance);
