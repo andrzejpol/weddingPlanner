@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&family=Style+Script&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  font-family: "Style Script", serif;
+  background: url(./bokeh-light-gold-glitters.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 20px 0;
+}
+
+body{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+nav {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  border-top: 1px solid goldenrod;
+  border-bottom: 1px solid goldenrod;
+  
+  
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+nav ul li {
+  padding: 15px 20px;
+  cursor: pointer;
+  color: goldenrod
+}
+
+nav ul li:hover {
+  color: #AE8419;
+}
+
+main,footer {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+}
+
+main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: goldenrod;
+}
+
+main section {
+  font-size: 100px;
+}
+
+main section span {
+  font-size: 200px;
+}
+
+
+
+footer {
+  background-color: goldenrod;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+}
+
