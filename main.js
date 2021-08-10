@@ -16,9 +16,16 @@ class Wedding {
   }
 };
 
-const renderTime = (wedding) => {
-  span.innerText = `${wedding.getDaysLeftToWeddingDay()} dni ${wedding.getHoursLeftToWeddingDay()} godzin`;
+const getWeddingDateFromUser = () => {
+  const year = Number(prompt("Podaj rok swojego ślubu: "));
+  const month = Number(prompt("Podaj miesiąc swojego ślubu: "));
+  const day = Number(prompt("Podaj dzień swojego ślubu: "));
+
+  const ourWedding = new Wedding(year, month - 1, day);
+  return ourWedding;
 }
 
-const ourWedding = new Wedding(2022, 9, 14);
-renderTime(ourWedding);
+const renderTimeToWedding = wedding => span.innerText = `${wedding.getDaysLeftToWeddingDay()} dni ${wedding.getHoursLeftToWeddingDay()} godzin`;
+
+
+renderTimeToWedding(getWeddingDateFromUser());
