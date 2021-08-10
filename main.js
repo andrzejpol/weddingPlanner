@@ -1,38 +1,24 @@
 const span = document.querySelector(".days-left");
 
-function renderDaysLeft(daysLeft, hoursLeft) {
-  span.innerText = `${daysLeft} dni ${hoursLeft} godzin`;
+class Wedding {
+  constructor(year, month, day) {
+    this.weddingDateInMiliseconds = new Date(year, month, day).getTime();
+    this.currentDateInMiliseconds = new Date().getTime();
+  }
+  getTimeDifferenceInMiliseconds() {
+    return this.weddingDateInMiliseconds - this.currentDateInMiliseconds;
+  }
+  getDaysLeftToWeddingDay() {
+    return Math.floor(this.getTimeDifferenceInMiliseconds() / (1000 * 60 * 60 * 24));
+  }
+  getHoursLeftToWeddingDay() {
+    return Math.floor((this.getTimeDifferenceInMiliseconds() % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  }
+};
+
+const renderTime = (wedding) => {
+  span.innerText = `${wedding.getDaysLeftToWeddingDay()} dni ${wedding.getHoursLeftToWeddingDay()} godzin`;
 }
 
-function getDays(distance) {
-  return Math.floor(distance / (1000 * 60 * 60 * 24));
-}
-
-function getHours(distance) {
-  return Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-}
-
-function getWeddingDate() {
-  return new Date("Oct 14, 2022 15:00:00").getTime();
-}
-
-function getCurrentDate() {
-  return new Date().getTime();
-}
-
-
-
-function daysLeftToWedding(weddingDate) {
-  const distance = getWeddingDate() - getCurrentDate();
-
-  const days = getDays(distance);
-  const hours = getHours(distance);
-  renderDaysLeft(days, hours)
-}
-
-function countdownToWedding() {
-  const weddingDate = getWeddingDate();
-  daysLeftToWedding(weddingDate);
-}
-
-countdownToWedding();
+const ourWedding = new Wedding(2022, 9, 14);
+renderTime(ourWedding);
